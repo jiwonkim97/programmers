@@ -1,18 +1,32 @@
 function solution(s) {
     let arr = [];
-    arr.push.length;
+    let res = '';
     for(let i = 1 ; i <= s.length / 2 ; i ++){
         let cnt = 0;
-        const chunc = s.substr(0,i);
+        let chunk = s.substr(0,i);
         let str = s
-        for(let j= 0 ; j < s.length/i ; j ++){
+        for(let j= 0 ; j <= s.length/i + 1 ; j ++){
+            if(chunk === str.substr(0,i)){
+                cnt ++;
+            }
+            else{
+                // console.log(cnt)
+                res+=cnt.toString()+chunk;
+                chunk = str.substr(0,i);
+                cnt = 1;
+            }
+            // console.log('str : '+str);
+            // console.log('chunk : ' +chunk + ' count : ' + cnt)
             str = str.substr(i);
-            console.log(str);
         }
+        console.log('###############'+res.replace(/[1][a-z]/g,''))
+        arr.push(res.replace(/[1]{1}[a-z]/g,'').length)
+        res = '';
     }
-    return s.length;
+    return Math.min(...arr);
 }
 
+console.log(solution("aaaaaaaaaaaa"))
 console.log(solution("aabbaccc"))
 console.log(solution("ababcdcdababcdcd"))
 console.log(solution("abcabcdede"))
