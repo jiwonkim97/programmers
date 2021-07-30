@@ -1,4 +1,6 @@
 function solution(s) {
+    if(s.length === 1)
+        return 1;
     let arr = [];
     let res = '';
     for(let i = 1 ; i <= s.length / 2 ; i ++){
@@ -19,16 +21,19 @@ function solution(s) {
             // console.log('chunk : ' +chunk + ' count : ' + cnt)
             str = str.substr(i);
         }
-        console.log('###############'+res.replace(/[1][a-z]/g,''))
-        arr.push(res.replace(/[1]{1}[a-z]/g,'').length)
+        // console.log('###############'+res.replace(/([1]{1})([a-z])/g,(a,b,c) => {return(c)}))
+        arr.push(res.replace(/([1]{1})([a-z])/g,(a,b,c) => {return(c)}).length)
         res = '';
     }
     return Math.min(...arr);
 }
 
-console.log(solution("aaaaaaaaaaaa"))
-console.log(solution("aabbaccc"))
-console.log(solution("ababcdcdababcdcd"))
-console.log(solution("abcabcdede"))
-console.log(solution("abcabcabcabcdededededede"))
-console.log(solution("xababcdcdababcdcd"))
+console.log(solution("bbaabaaaab" ))    //8
+console.log(solution("zzzbbabbabba" ))  //7
+console.log(solution("aaaaaaaaaaaa"))    //3
+console.log(solution("aaaaaaaaaaaaaaabbbbbbbbbbc")) //7
+console.log(solution("aabbaccc"))   //7
+console.log(solution("ababcdcdababcdcd"))   //9
+console.log(solution("abcabcdede")) //8
+console.log(solution("abcabcabcabcdededededede"))   //14
+console.log(solution("xababcdcdababcdcd"))  //17
