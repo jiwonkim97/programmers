@@ -12,28 +12,32 @@ function solution(s) {
                 cnt ++;
             }
             else{
-                // console.log(cnt)
-                res+=cnt.toString()+chunk;
+                res+=(cnt !== 1 ) ? cnt.toString()+chunk : chunk;
                 chunk = str.substr(0,i);
                 cnt = 1;
             }
-            // console.log('str : '+str);
-            // console.log('chunk : ' +chunk + ' count : ' + cnt)
             str = str.substr(i);
         }
-        // console.log('###############'+res.replace(/([1]{1})([a-z])/g,(a,b,c) => {return(c)}))
-        arr.push(res.replace(/([1]{1})([a-z])/g,(a,b,c) => {return(c)}).length)
+        console.log('####' + res)
+        arr.push(res.length)
         res = '';
     }
     return Math.min(...arr);
 }
 
-console.log(solution("bbaabaaaab" ))    //8
-console.log(solution("zzzbbabbabba" ))  //7
-console.log(solution("aaaaaaaaaaaa"))    //3
-console.log(solution("aaaaaaaaaaaaaaabbbbbbbbbbc")) //7
-console.log(solution("aabbaccc"))   //7
-console.log(solution("ababcdcdababcdcd"))   //9
-console.log(solution("abcabcdede")) //8
-console.log(solution("abcabcabcabcdededededede"))   //14
-console.log(solution("xababcdcdababcdcd"))  //17
+// console.log(solution("bbaabaaaab" ))    //8
+// console.log(solution("zzzbbabbabba" ))  //7
+// console.log(solution("aaaaaaaaaaaa"))    //3
+// console.log(solution("aaaaaaaaaaaaaaabbbbbbbbbbc")) //7
+// console.log(solution("aabbaccc"))   //7
+// console.log(solution("ababcdcdababcdcd"))   //9
+// console.log(solution("abcabcdede")) //8
+// console.log(solution("abcabcabcabcdededededede"))   //14
+// console.log(solution("xababcdcdababcdcd"))  //17
+// console.log(solution("aaaaaaaaaa"));
+console.log(solution("baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+// // console.log(solution("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+// console.log(solution("aaaaaaaaaabb"));
+// console.log(solution("abcdefghijklmnopqrstuvwxyz"));
+// console.log(solution("abbbbbbbbbb"));
+// console.log(solution("aaaaaaaaaabbbbbbbbbbcccccccccc"))
